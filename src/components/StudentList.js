@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
 //import {  } from '../actions/index';
 import { connect } from 'react-redux';
-function EmployeeList(props) {
-	const { EmployeeData}  = props;
+function StudentList(props) {
+	const { StudentData}  = props;
 	
 	return (
 		<div>
 			<div className="content-list">
-			{props.EmployeeData.length > 0  ? (
+			{props.StudentData.length > 0  ? (
 				<table className="table-list">
 					<thead>
 						<tr>
 							<th>Name</th>
 							<th>Email</th>
-							<th>Employee ID</th>
+							<th>Roll Number</th>
 							<th>Phone Number</th>
-							<th>Designation</th>
+							<th>Address</th>
 						</tr>
 					</thead>
 					<tbody>
-						{props.EmployeeData && props.EmployeeData .map((emp, i) => 
+						{props.StudentData && props.StudentData .map((std, i) => 
 							<tr key={i}>
-								<td>{emp.Name}</td>
-								<td>{emp.Email}</td>
-								<td>{emp.EmployeeID}</td>
-								<td>{emp.PhoneNum}</td>
-								<td>{emp.Designation}</td>
+								<td>{std.Name}</td>
+								<td>{std.Email}</td>
+								<td>{std.RollNumber}</td>
+								<td>{std.PhoneNum}</td>
+								<td>{std.Address}</td>
 							</tr>
 						)}
 					</tbody>
@@ -41,7 +41,7 @@ function EmployeeList(props) {
 
 function mapStateToProps(state) {
 	return {
-		EmployeeData: state.registration,
+		StudentData: state.registration,
 	};
 }
 
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch) {
 	}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentList);

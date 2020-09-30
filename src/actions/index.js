@@ -1,5 +1,5 @@
-export const ADD_EMPLOYEE = "ADD_EMPLOYEE";
+export const ADD_STUDENT = "ADD_STUDENT";
 
 export function submitForm(data) {
-    return { type: ADD_EMPLOYEE, payload: data };
+    return { type: ADD_STUDENT, payload: data };
 }

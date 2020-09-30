@@ -17,7 +17,7 @@
 .App-intro {
   font-size: large;
 }
-.employee-container {
+.student-container {
   text-align: center;
   background-color: #353444;
   width: 55%;
@@ -34,7 +34,7 @@ h4 {
 /* .table-list {
   width: 100%;
 } */
-.employee-form {
+.student-form {
   display: grid;
   align-items: center;
   justify-content: center;

@@ -4,35 +4,35 @@ import { connect } from 'react-redux';
 const initialState = {
 	Name: "",
 	Email: "",
-	EmployeeID: "",
+	RollNumber: "",
 	PhoneNum: "",
-	Designation: ""
+	Address: ""
 }
-function EmployeeForm(props) {
-	const [EmployeeData, setEmployeeData]= useState(initialState);
+function StudentForm(props) {
+	const [StudentData, setStudentData]= useState(initialState);
 	const { AllData}  = props;
 	// useEffect(() => {
         
 	// }, []);
 	const handleChange= (event) =>{
-		setEmployeeData({
-			...EmployeeData,
+		setStudentData({
+			...StudentData,
 			[event.target.name] : event.target.value
 		})
 	}
 	const handleSubmit = (event) =>{
 		event.preventDefault();
-		props.submitForm(EmployeeData)
-		setEmployeeData(initialState)
+		props.submitForm(StudentData)
+		setStudentData(initialState)
 	}
 
 	return (
-		<div className = "employee-container">
-			<h4>Employee Registration Form</h4>
-			<form onSubmit = {handleSubmit} className = "employee-form">
+		<div className = "student-container">
+			<h4>Student Registration Form</h4>
+			<form onSubmit = {handleSubmit} className = "student-form">
 				<input
 					type="text"
-					value = {EmployeeData.Name}
+					value = {StudentData.Name}
 					onChange = {handleChange}
 					name="Name"
 					placeholder="Name"
@@ -41,7 +41,7 @@ function EmployeeForm(props) {
 				/>
 				<input
 					type="text"
-					value = {EmployeeData.Email}
+					value = {StudentData.Email}
 					onChange = {handleChange}
 					name="Email"
 					maxLength ={60}
@@ -50,16 +50,16 @@ function EmployeeForm(props) {
 				/>
 				<input
 					type="number"
-					value = {EmployeeData.EmployeeID}
+					value = {StudentData.RollNumber}
 					onChange = {handleChange}
 					maxLength ={6}
-					name="EmployeeID"
-					placeholder="Employee ID"
+					name="RollNumber"
+					placeholder="Roll Number"
 					required
 				/>
 				<input
 					type="number"
-					value = {EmployeeData.PhoneNum}
+					value = {StudentData.PhoneNum}
 					onChange = {handleChange}
 					name="PhoneNum"
 					maxLength ={10}
@@ -68,11 +68,11 @@ function EmployeeForm(props) {
 				/>
 				<input
 					type="text"
-					value = {EmployeeData.Designation}
+					value = {StudentData.Address}
 					onChange = {handleChange}
-					name="Designation"
+					name="Address"
 					maxLength ={25}
-					placeholder="Designation"
+					placeholder="Address"
 					required
 				/> 
 				<button type = "submit" className="submit-btn" >Add</button>
@@ -89,9 +89,9 @@ function mapStateToProps(state) {
 
  function mapDispatchToProps(dispatch) {
 	 return {
-		submitForm:(EmployeeData) => dispatch(submitForm(EmployeeData))
+		submitForm:(StudentData) => dispatch(submitForm(StudentData))
 	 }
 	
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmployeeForm);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentForm);
